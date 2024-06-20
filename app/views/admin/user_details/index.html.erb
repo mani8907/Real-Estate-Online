@@ -1,0 +1,23 @@
+<h1>User Details</h1>
+<table class="details-table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Contact</th>
+      <th>City</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.contact %></td>
+        <td><%= user.city %></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>

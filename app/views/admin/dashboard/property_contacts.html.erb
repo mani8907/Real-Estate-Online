@@ -1,0 +1,32 @@
+<h1>Property Contacts</h1>
+
+  <table class="details-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Contact</th>
+        <th>Contacted Property</th>
+        <th>Property_for</th>
+        <th>Property_Owner</th>
+        <th>City</th>
+        <th>Contacted At</th>
+        <th>    </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @property_contacts.each do |contact| %>
+        <tr>
+          <td><%= contact.user.name %></td>
+          <td><%= contact.user.contact %></td>
+          <td><%= contact.property.name %></td>
+          <td><%= contact.property.prop_for %></td>
+          <td><%= contact.property.owner_name %></td>
+          <td><%= contact.property.city %></td>
+          <td><%= contact.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
+          <td>
+          <%= button_to 'Delete', admin_property_contact_path(contact), method: :delete, data: { confirm: 'Are you sure?' }, class: 'delete-button' %> 
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>

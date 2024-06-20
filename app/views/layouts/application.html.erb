@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RealEstateOnline</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="/assets/bootstrap.css" />
+  <!-- font awesome style -->
+  <link rel="stylesheet" type="text/css" href="/assets/font-awesome.min.css" />
+  
+  <!-- Custom styles for this template -->
+  <link href="/assets/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="/assets/responsive.css" rel="stylesheet" />
+  
+
+  </head>
+
+  <body>
+  
+    <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="header_top">
+        <div class="container-fluid">
+          <div class="contact_nav">
+            <a href="">
+              <i class="fa fa-phone" aria-hidden="true"></i>
+              <span>
+                Call : +91 939843957
+              </span>
+            </a>
+            <a href="">
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+              <span>
+                Email : mkr_realestate@gmail.com
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="header_bottom">
+        <div class="container-fluid">
+          <nav class="navbar navbar-expand-lg custom_nav-container ">
+            <a class="navbar-brand" href="/home/index">
+              <span>
+                <i>R</i>eal <i>E</i>state <i>O</i>nline
+              </span>
+            </a>
+
+            
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ">
+                <li class="nav-item active">
+                  <a class="nav-link" href="/home/index">Home <span class="sr-only">(current)</span></a>
+                </li>
+
+                <% if session[:admin] %>
+                <li class="nav-item">
+                  <a class="nav-link" href="/admin/dashboard/index">Dashboard</a>
+                </li>
+                <%else%>
+                <li class="nav-item">
+                  <a class="nav-link" href="/admin/login">Dashboard</a>
+                </li>
+                <%end%>
+                
+                
+                  <% if user_signed_in? %>
+                    <li class="nav-item active">
+                    <%= link_to "Edit profile", edit_user_registration_path, class: "nav-link" %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </li>
+                    <li class="nav-item active">
+                    <%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete }, class: "nav-link"  %>
+                    </li>
+                  <% else %>
+                    <li class="nav-item active">
+                    <%= link_to "Sign up", new_user_registration_path, class: "nav-link"  %> 
+                    </li>
+                    <li class="nav-item active">
+                    <%= link_to "Login", new_user_session_path, class: "nav-link"  %>
+                    </li>
+                  <% end %> 
+                
+
+                
+
+                
+                <% if session[:admin] %>
+                <li class="nav-item active">
+                <a href="/admin/logout" class= "nav-link"> Admin Logout</a>
+                </li>
+                <% else %>
+                <li class="nav-item active">
+                <a href="/admin/login" class= "nav-link"> Admin Login</a>
+                </li>
+                <% end %>
+
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <!-- end header section -->
+
+    <% if notice %>
+     <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+     <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
+
+
+    <div class="box">
+      <div class="container">
+        <%= yield %>
+      </div>
+    </div>
+        
+    <div style="padding-bottom:330px">
+    </div>  
+
+  </div>
+
+  
+  
+
+
+
+
+  <!-- footer section -->
+  <footer class="footer_section">
+    <div class="container">
+      <p>
+        &copy; <span id="displayDateYear"></span> All Rights Reserved By mkr_realestate.com
+      </p>
+    </div>
+  </footer>
+  <!-- footer section -->
+
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  </script>
+  <script src="js/custom.js"></script>
+  <!-- Google Map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
+  <!-- End Google Map -->
+
+  </body>
+</html>

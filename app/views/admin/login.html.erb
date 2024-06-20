@@ -1,0 +1,39 @@
+<% if user_signed_in? %>
+  Notice: "User is already signed in. Admin cannot sign in. Kindly sign out as user!"
+<%else%>
+
+<%= flash[:notice]%>
+<div  class="card1">
+<h2>Admin Login</h2>
+<%= form_with url: "/admin/login", method: :post do |form| %>
+<table>
+  <tr>
+    <td>
+    <%= form.label :username%>
+    </td>
+    <td>
+    <%= form.text_field :username , :class=>"form-control"%>
+    </td>
+  </tr>
+  <tr> 
+    <td>
+    <%= form.label :password%>
+    </td>
+    <td>
+    <%= form.password_field :password,:class=>"form-control" %>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+    <%= form.submit "Login" ,:class=>"btn btn-primary"%>
+    </td>
+  </tr>
+</table>
+<% end%>
+</div>
+
+<%end%>
+
+
+
+

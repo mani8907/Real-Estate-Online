@@ -1,0 +1,21 @@
+<p style="color: green"><%= notice %></p>
+
+<div style="display: flex">
+<h1>Properties</h1>
+
+<div style="margin-left: 800px;">
+<button style="padding: 10px 20px; text-align: center; border-radius: 12px; cursor: pointer; background-color: yellow">
+    <%= link_to "New property", new_property_path %>
+</button>
+</div>
+</div>
+
+<div id="properties">
+  <% @properties.each do |property| %>
+      <%= render property %>
+    <button style="padding: 10px 20px; text-align: center; border-radius: 12px; cursor: pointer; background-color: black">
+      <%= link_to "Show this property", property %>
+    </button>
+  <% end %>
+</div>
+

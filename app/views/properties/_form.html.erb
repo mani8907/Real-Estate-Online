@@ -1,0 +1,63 @@
+<%= form_with(model: property) do |form| %>
+  <% if property.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(property.errors.count, "error") %> prohibited this property from being saved:</h2>
+
+      <ul>
+        <% property.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <table class="tabpf">
+  <tr>
+    <td class="td1"><%= form.label :name %></td>
+    <td class="td2"><%= form.text_field :name ,:class=>"form-control"%></td>
+  </tr>
+  <tr>
+    <td class="td1"><%= form.label :sector %></td>
+    <td class="td2"><%= form.text_field :sector ,:class=>"form-control"%></td>
+  </tr>
+  <tr>
+    <td class="td1"><%= form.label :prop_for %></td>
+    <td class="td2"><%= form.text_field :prop_for ,:class=>"form-control"%></td>
+  </tr>
+  <tr>
+    <td class="td1"><%= form.label :owner_name %></td>
+    <td class="td2"><%= form.text_field :owner_name ,:class=>"form-control"%></td>
+  </tr>
+  <tr>
+    <td class="td1"><%= form.label :contact %></td>
+    <td class="td2"><%= form.number_field :contact ,:class=>"form-control"%></td>
+  </tr>
+  <tr>
+    <td class="td1"><%= form.label :city %></td>
+    <td class="td2"><%= form.text_field :city ,:class=>"form-control"%></td>
+  </tr>
+  <tr>
+    <td class="td1"><%= form.label :square_feet%></td>
+    <td class="td2"><%= form.text_field :square_feet ,:class=>"form-control"%></td>
+  </tr>
+  <tr>
+    <td class="td1"><%= form.label :deposit %></td>
+    <td class="td2"><%= form.text_field :deposit ,:class=>"form-control"%></td>
+  </tr>
+  <tr>
+    <td class="td1"><%= form.label :location_details %></td>
+    <td class="td2"><%= form.text_area :location_details ,:class=>"form-control"%></td>
+  </tr>
+  <tr>
+    <td class="td1"><%= form.label :description %></td>
+    <td class="td2"><%= form.text_area :description ,:class=>"form-control"%></td>
+  </tr>
+  <tr>
+    <td class="td1"><%= form.label :prop_image %></td>
+    <td class="td2"><%= form.file_field :prop_image %></td>
+  </tr>
+  </table>
+  <div style="padding-top:5px;">
+    <%= form.submit %>
+  </div>
+<% end %>

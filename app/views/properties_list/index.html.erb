@@ -1,0 +1,42 @@
+<div style="display: flex; justify-content: space-between; align-items: center;">
+<h1>PropertiesList</h1>
+
+  <div style="display: flex;">
+  <%= form_with url: "/properties_list/search", method: :get do |form| %>
+    <%= form.text_field :keyword %>
+    <%= form.submit "Search" %>
+<% end %>
+  </div>
+</div>
+
+
+<table >
+<tr>
+<div class="gallery-container">
+<% count=0 %>
+<% @property_list.each do |propt|%>
+<% if (count % 3) == 0%>
+<% end %>
+<% count+=1 %>
+
+<div class="card">
+      <% if propt.prop_image.attached? %>
+        <%= image_tag propt.prop_image, height: "100", width: "100" %><br />
+      <% end %>
+      <div class="name"><h4><%= propt.name %></h4></div>
+      <div class="context">Sector: <%= propt.sector %></div>
+      <div class="context">Property for: <%= propt.prop_for %></div>
+      <div class="context">Square ft: <%= propt.square_feet %></div>
+      <div class="context">Deposit: <%= propt.deposit %></div>
+      <div class="context">Location: <%= propt.city %></div>
+      <%= button_to 'Get Details', send_property_details_path(property_id: propt.id), method: :post, class: "button" %>
+      <%= link_to 'View', properties_list_path(propt), class: 'button' %>
+
+    </div>
+ 
+<% end %>
+</div>
+</tr>
+</table>
+
+

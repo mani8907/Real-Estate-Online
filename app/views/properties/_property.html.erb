@@ -1,0 +1,69 @@
+
+<div id="<%= dom_id property %>">
+
+<table class="tab1">
+ <tr>
+  <th>Property Image</th>
+  <th>Property Details</th>
+ </tr>
+<tr>
+<td class="property-image">
+<% if property.prop_image.attached?%>
+<%= image_tag property.prop_image, height: "300",width: "300" %>
+<% end %> 
+</td>
+<td class="property-details">
+  <p>
+    <strong>Name:</strong>
+    <%= property.name %>
+  </p>
+
+  <p>
+    <strong>Sector:</strong>
+    <%= property.sector %>
+  </p>
+
+  <p>
+    <strong>Prop for:</strong>
+    <%= property.prop_for %>
+  </p>
+
+  <p>
+    <strong>Owner name:</strong>
+    <%= property.owner_name %>
+  </p>
+
+  <p>
+    <strong>Contact:</strong>
+    <%= property.contact %>
+  </p>
+
+  <p>
+    <strong>City:</strong>
+    <%= property.city %>
+  </p>
+
+  <p>
+    <strong>Square feet:</strong>
+    <%= property.square_feet %>
+  </p>
+
+  <p>
+    <strong>Deposit:</strong>
+    <%= property.deposit %>
+  </p>
+
+  <p>
+    <strong>Location details:</strong>
+    <%= property.location_details %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= property.description %>
+  </p>
+  </td>
+  </tr>
+  </table>
+
+</div>

@@ -1,0 +1,10 @@
+<h1><%= @property.name %></h1>
+<% if @property.prop_image.attached? %>
+  <%= image_tag @property.prop_image %>
+<% end %>
+<p>Sector: <%= @property.sector %></p>
+<p>Property for: <%= @property.prop_for %></p>
+<p>Square ft: <%= @property.square_feet %></p>
+<p>Deposit: <%= @property.deposit %></p>
+<p>Location: <%= @property.city %></p>
+<%= link_to 'Back to Properties', properties_list_index_path, class: 'button' %>

@@ -1,0 +1,35 @@
+<h1 style="padding-top:30px;">Dashboard</h1>
+<div style="padding:20px;"></div>
+
+
+<div class="d-flex flex-wrap justify-content-around pt-3">
+  <a href="<%= properties_path %>" class="text-decoration-none">
+    <div class="card22 text-center " style="width: 18rem;background-color: #fd520e;">
+      <div class="card-body d-flex flex-column align-items-center">
+        <img src="/assets/dip.jpg" alt="" width="70px" height="70px" class="mb-3">
+        <h2 class="card-title">Total Properties</h2>
+        <h1 class="card-text"><%= @properties_count %></h1>
+      </div>
+    </div>
+  </a>
+  
+  <a href="<%= admin_user_details_path %>" class="text-decoration-none">
+    <div class="card22 text-center " style="width: 18rem;background-color: #f87b49;">
+      <div class="card-body d-flex flex-column align-items-center">
+        <img src="/assets/diu.jpg" alt="" width="70px" height="70px" class="mb-3">
+        <h2 class="card-title">Total Users</h2>
+        <h1 class="card-text"><%= @users_count %></h1>
+      </div>
+    </div>
+  </a>
+  
+  <a href="<%= admin_property_contacts_path %>" class="text-decoration-none">
+    <div class="card22 text-center " style="width: 18rem;background-color: #fd520e;">
+      <div class="card-body d-flex flex-column align-items-center">
+        <img src="/assets/duc.jpg" alt="" width="70px" height="70px" class="mb-3">
+        <h2 class="card-title">Properties Contacted</h2>
+        <h1 class="card-text"><%= @property_contacted_count %></h1>
+      </div>
+    </div>
+  </a>
+</div>
